@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.dmfs</groupId>
 	<artifactId>http-client-essentials</artifactId>
-	<version>0.5</version>
+	<version>0.6</version>
 	<packaging>jar</packaging>
 	<name>http-client-essentials</name>
 	<description>A lightweight http client model.</description>

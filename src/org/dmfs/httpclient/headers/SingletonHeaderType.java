@@ -20,14 +20,14 @@ package org.dmfs.httpclient.headers;
 /**
  * Represents a header type. That is, it binds a header name to a value type.
  * <p />
- * Two {@link SimpleHeaderType}s are considered to equal if they have the same header name.
+ * Two {@link SingletonHeaderType}s are considered to equal if they have the same header name.
  * 
  * @author Marten Gajda <marten@dmfs.org>
  * 
  * @param <ValueType>
  *            The type of the header value.
  */
-public interface SimpleHeaderType<ValueType> extends HeaderType<ValueType>
+public interface SingletonHeaderType<ValueType> extends HeaderType<ValueType>
 {
 
 }

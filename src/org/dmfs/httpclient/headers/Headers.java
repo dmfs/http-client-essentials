@@ -39,7 +39,7 @@ public interface Headers extends Iterable<Header<?>>
 
 
 	/**
-	 * Returns the value of the header of the given {@link SimpleHeaderType}.
+	 * Returns the value of the header of the given {@link SingletonHeaderType}.
 	 * 
 	 * @param headerType
 	 *            The {@link HeaderType} to look for.
@@ -47,7 +47,7 @@ public interface Headers extends Iterable<Header<?>>
 	 * @throws NoSuchElementException
 	 *             if no such header exists within these {@link Headers}.
 	 */
-	public <T> Header<T> header(SimpleHeaderType<T> headerType);
+	public <T> Header<T> header(SingletonHeaderType<T> headerType);
 
 
 	/**

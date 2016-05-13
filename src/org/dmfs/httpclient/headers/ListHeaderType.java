@@ -21,7 +21,7 @@ import java.util.List;
 
 
 /**
- * Represents a header type. That is, it binds a header name to a value type. In contrast to {@link SimpleHeaderType} this is for headers that are defined to
+ * Represents a header type. That is, it binds a header name to a value type. In contrast to {@link SingletonHeaderType} this is for headers that are defined to
  * have a list value.
  * <p />
  * Two {@link ListHeaderType}s are considered to equal if they have the same header name.
