@@ -40,9 +40,9 @@ public interface HttpRequestEntity
 
 
 	/**
-	 * Returns the length of the content or a negative number if it's not known.
+	 * Returns the length of the content or <code>-1</code> if it's not known.
 	 * 
-	 * @return The content length or a negative number.
+	 * @return The content length or <code>-1</code> .
 	 * @throws IOException
 	 */
 	public long contentLength() throws IOException;

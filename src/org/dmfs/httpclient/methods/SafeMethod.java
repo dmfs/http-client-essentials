@@ -30,9 +30,9 @@ import org.dmfs.httpclient.HttpMethod;
  */
 public final class SafeMethod extends AbstractMethod
 {
-	public SafeMethod(final String verb)
+	public SafeMethod(final String verb, final boolean supportsRequestPayload)
 	{
-		super(verb);
+		super(verb, supportsRequestPayload);
 	}
 
 

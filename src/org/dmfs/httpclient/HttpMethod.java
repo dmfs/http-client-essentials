@@ -37,63 +37,63 @@ public interface HttpMethod
 	 * 
 	 * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3.1">RFC 7231, section 4.3.1</a>
 	 */
-	public final static HttpMethod GET = new SafeMethod("GET");
+	public final static HttpMethod GET = new SafeMethod("GET", false);
 
 	/**
 	 * HTTP Method HEAD
 	 * 
 	 * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3.2">RFC 7231, section 4.3.2</a>
 	 */
-	public final static HttpMethod HEAD = new SafeMethod("HEAD");
+	public final static HttpMethod HEAD = new SafeMethod("HEAD", false);
 
 	/**
 	 * HTTP Method POST
 	 * 
 	 * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3.3">RFC 7231, section 4.3.3</a>
 	 */
-	public final static HttpMethod POST = new Method("POST");
+	public final static HttpMethod POST = new Method("POST", true);
 
 	/**
 	 * HTTP Method PUT
 	 * 
 	 * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3.4">RFC 7231, section 4.3.4</a>
 	 */
-	public final static HttpMethod PUT = new IdempotentMethod("PUT");
+	public final static HttpMethod PUT = new IdempotentMethod("PUT", true);
 
 	/**
 	 * HTTP Method DELETE
 	 * 
 	 * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3.5">RFC 7231, section 4.3.5</a>
 	 */
-	public final static HttpMethod DELETE = new IdempotentMethod("DELETE");
+	public final static HttpMethod DELETE = new IdempotentMethod("DELETE", false);
 
 	/**
 	 * HTTP Method CONNECT
 	 * 
 	 * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3.6">RFC 7231, section 4.3.6</a>
 	 */
-	public final static HttpMethod CONNECT = new Method("CONNECT");
+	public final static HttpMethod CONNECT = new Method("CONNECT", false);
 
 	/**
 	 * HTTP Method OPTIONS
 	 * 
 	 * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3.7">RFC 7231, section 4.3.7</a>
 	 */
-	public final static HttpMethod OPTIONS = new SafeMethod("OPTIONS");
+	public final static HttpMethod OPTIONS = new SafeMethod("OPTIONS", true);
 
 	/**
 	 * HTTP Method TRACE
 	 * 
 	 * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.3.8">RFC 7231, section 4.3.8</a>
 	 */
-	public final static HttpMethod TRACE = new SafeMethod("TRACE");
+	public final static HttpMethod TRACE = new SafeMethod("TRACE", false);
 
 	/**
 	 * HTTP Method PATCH
 	 * 
 	 * @see <a href="http://tools.ietf.org/html/rfc5789">RFC 5789</a>
 	 */
-	public final static HttpMethod PATCH = new Method("PATCH");
+	public final static HttpMethod PATCH = new Method("PATCH", true);
 
 
 	/**
@@ -120,4 +120,23 @@ public interface HttpMethod
 	 * @see <a href="https://tools.ietf.org/html/rfc7231#section-4.2.2">RFC 7231, Section 4.2.2</a>
 	 */
 	public boolean isIdempotent();
+
+
+	/**
+	 * Returns whether this {@link HttpMethod} allows to send a message body.
+	 * <p/>
+	 * Note that RFC 7231 does not explicitly forbid a message payload for some methods (in particular these are {@link #GET}, {@link #HEAD}, {@link #DELETE}
+	 * and {@link #CONNECT}). Instead is says something like this:
+	 * 
+	 * <pre>
+	 * A payload within a XXX request message has no defined semantics;
+	 * sending a payload body on a XXX request might cause some existing
+	 * implementations to reject the request.
+	 * </pre>
+	 * 
+	 * The predefined methods in {@link HttpMethod} interpret this rather strict and return <code>false</code> for such methods.
+	 * 
+	 * @return <code>true</code> if this method supports a message body, <code>false</code> otherwise.
+	 */
+	public boolean supportsRequestPayload();
 }

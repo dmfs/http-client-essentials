@@ -30,9 +30,9 @@ import org.dmfs.httpclient.HttpMethod;
  */
 public final class IdempotentMethod extends AbstractMethod
 {
-	public IdempotentMethod(final String verb)
+	public IdempotentMethod(final String verb, final boolean supportsRequestPayload)
 	{
-		super(verb);
+		super(verb, supportsRequestPayload);
 	}
 
 

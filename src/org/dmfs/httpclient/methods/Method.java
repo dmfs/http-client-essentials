@@ -30,9 +30,9 @@ import org.dmfs.httpclient.HttpMethod;
  */
 public final class Method extends AbstractMethod
 {
-	public Method(final String verb)
+	public Method(final String verb, final boolean supportsRequestPayload)
 	{
-		super(verb);
+		super(verb, supportsRequestPayload);
 	}
 
 

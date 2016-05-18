@@ -32,16 +32,21 @@ public abstract class AbstractMethod implements HttpMethod
 	 */
 	private final String mVerb;
 
+	private final Boolean mSupportsRequestPayload;
+
 
 	/**
 	 * Instantiates a new {@link HttpMethod} with the given verb.
 	 * 
 	 * @param verb
 	 *            The method verb.
+	 * @param supportsRequestPayload
+	 *            whether this method support sending a request message body.
 	 */
-	public AbstractMethod(final String verb)
+	public AbstractMethod(final String verb, final boolean supportsRequestPayload)
 	{
 		mVerb = verb;
+		mSupportsRequestPayload = supportsRequestPayload;
 	}
 
 
@@ -49,6 +54,13 @@ public abstract class AbstractMethod implements HttpMethod
 	public final String verb()
 	{
 		return mVerb;
+	}
+
+
+	@Override
+	public final boolean supportsRequestPayload()
+	{
+		return mSupportsRequestPayload;
 	}
 
 
