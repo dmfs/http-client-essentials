@@ -35,18 +35,14 @@ public interface HttpRequestExecutor
 {
 
 	/**
-	 * Sends the given {@link HttpRequest} to the given {@link URI} and returns the result. This method uses a custom {@link OnRedirectCallback} to handle any
-	 * redirections.
+	 * Sends the given {@link HttpRequest} to the given {@link URI} and returns the result.
 	 * 
 	 * @param uri
 	 *            The URI to send this request to.
 	 * @param request
 	 *            The request to execute.
-	 * @param redirectionCallback
-	 *            An {@link OnRedirectCallback} that determines how to handle any redirections.
 	 * @return The result, i.e. the handled server response.
 	 */
-	public <T> T execute(URI uri, HttpRequest<T> request, OnRedirectCallback redirectionCallback) throws IOException, ProtocolError, ProtocolException,
-		RedirectionException, UnexpectedStatusException;
+	public <T> T execute(URI uri, HttpRequest<T> request) throws IOException, ProtocolError, ProtocolException, RedirectionException, UnexpectedStatusException;
 
 }

@@ -20,11 +20,10 @@ package org.dmfs.httpessentials.exceptions;
 import java.net.URI;
 
 import org.dmfs.httpessentials.HttpStatus;
-import org.dmfs.httpessentials.client.OnRedirectCallback;
 
 
 /**
- * An {@link Exception} that's thrown when the server returns a redirect and the {@link OnRedirectCallback} returned <code>false</code> for this redirect.
+ * An {@link Exception} that's thrown when the server returns a (unhandled) redirect.
  * <p>
  * There are two subclasses for specific error conditions: {@link TooManyRedirectsException} and {@link RedirectionLoopException}.
  * </p>
